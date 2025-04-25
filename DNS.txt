@@ -1,0 +1,16 @@
+DNS stands for Domain Name System,
+ and it's basically the internet’s version of a phone book.
+
+📘 What DNS Does:
+When you type a website like www.google.com into your browser,
+ DNS translates that name into an IP address like 142.250.190.36, 
+which is what computers use to find each other on the network.
+
+⚙️ How DNS Works (Step by Step):
+You type a URL in your browser (e.g., www.example.com).
+Browser checks cache: If the IP address was recently looked up, it’s stored in your device’s memory or local DNS cache. If found, it uses that.
+Query goes to a DNS resolver: If not cached, your request is sent to a DNS recursive resolver (usually operated by your ISP or a third party like Google or Cloudflare).
+Resolver checks with Root DNS Server: If it doesn’t know the address, it asks a root server, which directs it to the correct Top-Level Domain (TLD) server (like .com, .org, .net).
+TLD server points to the authoritative DNS server for example.com.
+Authoritative DNS server gives the IP address for the domain.
+Your browser connects to that IP and loads the website.
