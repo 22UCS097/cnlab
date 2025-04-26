@@ -14,3 +14,57 @@ Resolver checks with Root DNS Server: If it doesn’t know the address, it asks 
 TLD server points to the authoritative DNS server for example.com.
 Authoritative DNS server gives the IP address for the domain.
 Your browser connects to that IP and loads the website.
+------------------------------------------------------------------
+
+three way handshak
+
+In HTTP, the term "three-way handshake" typically refers to the TCP three-way handshake, which is the process used to establish a reliable connection between a client and a server before any HTTP data is sent. Here's how it works:
+
+TCP Three-Way Handshake
+SYN (Synchronize):
+The client sends a SYN packet to the server to request a connection.
+
+SYN-ACK (Synchronize-Acknowledge):
+The server responds with a SYN-ACK packet to acknowledge the request and signal it's ready.
+
+ACK (Acknowledge):
+The client sends back an ACK packet, confirming the connection.
+
+✅ Once this three-way handshake is complete, the HTTP request (like GET /index.html) can be sent.
+
+  ----------------------------------------------------------------------
+🔐 How HTTPS Works (Step-by-Step):
+Client Initiates Connection:
+
+You visit https://example.com, and your browser sends a request to the server to begin a TLS (Transport Layer Security) handshake.
+
+Server Responds with Certificate:
+
+The server sends back its SSL/TLS certificate, which includes:
+ .The server's public key
+ .The domain name
+ .The certificate authority (CA) signature
+ .Certificate Verification:
+
+Your browser checks that the certificate is:
+ .Issued by a trusted CA
+ .Valid (not expired)
+ .Actually belongs to example.com
+ .Key Exchange & Session Setup:
+
+If the certificate is trusted, your browser:
+ .Uses the server’s public key to securely send a pre-master key
+ .This key helps generate a shared session key used for encryption
+
+Encrypted Connection Established:
+ .Both the client and server now use this session key to:
+ .Encrypt all data exchanged (so it can't be read if intercepted)
+ .Ensure data integrity and authenticity
+
+Secure HTTP (HTTPS) Begins:
+With the encrypted tunnel set up, normal HTTP requests/responses now occur securely over TLS.
+
+✅ Benefits of HTTPS:
+Encryption: Prevents snooping (e.g., by ISPs or hackers)
+Authentication: Confirms the website is who it says it is
+Data Integrity: Ensures the data isn't tampered with during transit
